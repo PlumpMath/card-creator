@@ -24,7 +24,7 @@ poker_size = (cm_to_pixels(6.3), cm_to_pixels(8.8))
 print "Poker card pixel dimensions: " + str(poker_size)
 
 margin = cm_to_pixels(1.0)
-spacing = cm_to_pixels(0.1)
+spacing = cm_to_pixels(0.02)
 
 border_width = cm_to_pixels(0.25) # around each card
 border_color = (230, 230, 230)
@@ -103,7 +103,8 @@ card_set_1 = [
 	{'illustration': "citrus", 'corner_nr': "3", 'name': "Fish", 'body': "The player with the least points you're the oldest player at the table, eat a flower."},
 ]
 
-create_paper(card_set_1).show()
+#create_paper(card_set_1).show()
 #create_card(card_set_1[0]).show()
 
+create_paper(card_set_1).save("set1.png")
 
