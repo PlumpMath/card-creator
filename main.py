@@ -27,7 +27,7 @@ margin = cm_to_pixels(1.0)
 spacing = cm_to_pixels(0.02)
 
 border_width = cm_to_pixels(0.25) # around each card
-border_color = (230, 230, 230)
+border_color = (150, 150, 150)
 
 size_minus_border = (poker_width - (border_width * 2), poker_height - (border_width * 2))
 (width_minus_border, height_minus_border) = size_minus_border
@@ -39,7 +39,7 @@ body_font = ImageFont.truetype(font_path, normalized_font_size(46), encoding='un
 
 hexagon = Image.open("illustrations/hexagon.png")
 
-footer_color = (200, 200, 200)
+footer_color = (190, 200, 200)
 
 def draw_title(card, raw_text, pos):
 	text = raw_text.decode('utf-8')
@@ -100,17 +100,51 @@ def create_paper(cards_data_set):
 			paper.paste(card, (x, y))
 	return paper
 
+def generate_papers_from_sets(sets):
+	i = 1
+	for s in sets:
+		print "Generating set " + str(i)
+		paper = create_paper(s)
+		paper.save("output/set" + str(i) + ".png")
+		i += 1
+
+card_set_0 = [
+	{'name': "", 'illustration': "", 'body': "Gain 3 points.", 'body_width': 25, 'corner_nr': "0"},
+	{'name': "", 'illustration': "", 'body': "Gain 3 points.", 'body_width': 25, 'corner_nr': "0"},
+	{'name': "", 'illustration': "", 'body': "Gain 3 points.", 'body_width': 25, 'corner_nr': "0"},
+]
+
 card_set_1 = [
 	{'illustration': "big_time", 'body_width': 25, 'corner_nr': "0", 'name': "Big Time", 'body': "Gain 3 points."}, 
 	{'illustration': "destruction", 'body_width': 25, 'corner_nr': "0", 'name': "Destruction", 'body': "Trash a card."},
 	{'illustration': "ambush", 'body_width': 23, 'corner_nr': "2", 'name': "Ambush!", 'body': "Put a card from your hand into play face up."},
 ]
 
-#create_card(card_set_1[0]).show()
+card_set_2 = [
+	{'name': "Hecatomb", 'illustration': "hecatomb", 'body': "Trash any number of cards you control to gain that many points.", 'body_width': 24, 'corner_nr': "2"},
+	{'name': "Simplicity", 'illustration': "simplicity", 'body': "Gain 1 point.", 'body_width': 25, 'corner_nr': "4"},
+	{'name': "Catch Up", 'illustration': "catch_up", 'body': "The player with the least points (if any) gains 5 points.", 'body_width': 24, 'corner_nr': "2"},
+]
 
-set1 = create_paper(card_set_1)
-set1.save("set1.png")
-set1.show()
+card_set_3 = [
+	{'name': "Time Machine", 'illustration': "time_machine", 'body': "Lose 5 points. You can use two additional cards this turn.", 'body_width': 25, 'corner_nr': "1"},
+	{'name': "Together We Fall", 'illustration': "together_we_fall", 'body': "Both players lose 7 points.", 'body_width': 35, 'corner_nr': "1"},
+	{'name': "Scoundrels", 'illustration': "scoundrels", 'body': "Both players may play up to two cheats from their hands.", 'body_width': 23, 'corner_nr': "3"},
+]
 
+card_set_4 = [
+	{'name': "Rescue Mission", 'illustration': "rescue_mission", 'body': "Lose 2 points. Pick a trashed card and put it into play (unused).", 'body_width': 25, 'corner_nr': "1"},
+	{'name': "Working 9 to 5", 'illustration': "working_9_to_5", 'body': "Gain 2 points.", 'body_width': 25, 'corner_nr': "2"},
+	{'name': "Late Bloomer", 'illustration': "late_bloomer", 'body': "Gain 1 point. Turn a card into a cheat.", 'body_width': 25, 'corner_nr': "1"},
+]
 
+card_set_5 = [
+	{'name': "Metamorphic", 'illustration': "metamorphic", 'body': "Gain 1 point. Flip up a cheat.", 'body_width': 17, 'corner_nr': "2"},
+	{'name': "Duplicate", 'illustration': "duplicate", 'body': "Both players double their points.", 'body_width': 20, 'corner_nr': "2"},
+	{'name': "The Sublime", 'illustration': "the_sublime", 'body': "Trash this card. Make two used cards usable again.", 'body_width': 20, 'corner_nr': "1"},
+]
 
+sets = [card_set_1, card_set_2, card_set_3, card_set_4, card_set_5]
+generate_papers_from_sets(sets)
+
+#create_paper(card_set_5).show()
