@@ -1,5 +1,5 @@
 from PIL import Image, ImageFont, ImageDraw, ImageOps
-import textwrap
+from textwrap import TextWrapper
 
 dpi = 300.0
 
@@ -53,7 +53,11 @@ def draw_corner_nr(card, raw_text, pos):
 
 def draw_body(card, raw_text, center_y, card_width, chars_per_line):
 	text = raw_text.decode('utf-8')
-	lines = textwrap.wrap(text, width = chars_per_line)
+	wrapper = TextWrapper()
+	wrapper.width = chars_per_line
+	wrapper.replace_whitespace = True
+	wrapper.drop_whitespace = False
+	lines = wrapper.wrap(text)
 	line_width, line_height = body_font.getsize(lines[0])
 	y = center_y - (line_height * (float(len(lines)) / 2.0))
 	for line in lines:
@@ -78,10 +82,10 @@ def create_card(card_data):
 	card = Image.new("RGB", size_minus_border, "white")
 	draw_illustration(card, card_data['illustration'], 100, 500)
 	draw_title(card, card_data['name'], (20, 15))
-	draw_body(card, card_data['body'], 730, width_minus_border, 25)
+	draw_body(card, card_data['body'], 730, width_minus_border, card_data['body_width'])
 	#draw_hexagon(card)
 	draw_footer(card, 100)
-	draw_corner_nr(card, card_data['corner_nr'], (width_minus_border - 70, height_minus_border - 90))
+	draw_corner_nr(card, card_data['corner_nr'], (width_minus_border - 65, height_minus_border - 90))
 	card_with_border = ImageOps.expand(card, border=border_width, fill=border_color)
 	return card_with_border
 
@@ -97,14 +101,16 @@ def create_paper(cards_data_set):
 	return paper
 
 card_set_1 = [
-	{'illustration': "bison", 'corner_nr': "0", 'name': "The Death", 'body': "Give each player a warm cup of coffee and a hug."}, 
-	{'illustration': "citrus", 'corner_nr': "1", 'name': "Lemonade", 'body': "If you're the oldest player at the table, eat a flower."},
-	{'illustration': "bison", 'corner_nr': "2", 'name': "Ice ice baby", 'body': "If you're the oldest player at the table, eat a flower.\n\nWhadyawant?"},
-	{'illustration': "citrus", 'corner_nr': "3", 'name': "Fish", 'body': "The player with the least points you're the oldest player at the table, eat a flower."},
+	{'illustration': "big_time", 'body_width': 25, 'corner_nr': "0", 'name': "Big Time", 'body': "Gain 3 points."}, 
+	{'illustration': "destruction", 'body_width': 25, 'corner_nr': "0", 'name': "Destruction", 'body': "Trash a card."},
+	{'illustration': "ambush", 'body_width': 23, 'corner_nr': "2", 'name': "Ambush!", 'body': "Put a card from your hand into play face up."},
 ]
 
-#create_paper(card_set_1).show()
 #create_card(card_set_1[0]).show()
 
-create_paper(card_set_1).save("set1.png")
+set1 = create_paper(card_set_1)
+set1.save("set1.png")
+set1.show()
+
+
 
