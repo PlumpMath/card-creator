@@ -144,7 +144,13 @@ card_set_5 = [
 	{'name': "The Sublime", 'illustration': "the_sublime", 'body': "Trash this card. Make two used cards usable again.", 'body_width': 20, 'corner_nr': "1"},
 ]
 
-sets = [card_set_1, card_set_2, card_set_3, card_set_4, card_set_5]
-generate_papers_from_sets(sets)
+card_set_6 = [
+	{'name': "", 'illustration': "metamorphic", 'body': "Exchange control over two unused cards.", 'body_width': 30, 'corner_nr': "2"},
+	{'name': "", 'illustration': "duplicate", 'body': "Both players double their points.", 'body_width': 20, 'corner_nr': "2"},
+	{'name': "", 'illustration': "the_sublime", 'body': "Trash this card. Make two used cards usable again.", 'body_width': 20, 'corner_nr': "1"},
+]
 
-#create_paper(card_set_5).show()
+sets = [card_set_1, card_set_2, card_set_3, card_set_4, card_set_5, card_set_6]
+#generate_papers_from_sets(sets)
+
+create_paper(card_set_6).show()
