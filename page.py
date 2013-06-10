@@ -44,7 +44,7 @@ def create_page(card_set, card_indexes):
 	return page
 
 def complete_page(card_set, card_indexes, save, show, page_counter):
-	print "Creating page with cards: " + str(card_indexes)
+	print "Creating page nr " + str(page_counter) + " with cards: " + str(card_indexes)
 	page = create_page(card_set, card_indexes)
 	if show:
 		page.show()
@@ -67,6 +67,7 @@ def generate_pages_from_set(card_set, card_indexes = range(0, 99), save = False,
 		else:
 			card_to_add = cards[i]
 			count = card_to_add['count']
+			total_card_count += count
 			if (cards_on_current_page + count) <= cards_per_page:
 				indexes_on_current_page.append(i)
 				cards_on_current_page += count

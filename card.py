@@ -49,7 +49,7 @@ def create_card(card_data, size_minus_border, border_width, border_color):
 	draw_title(card, card_data['name'], (20, 15))
 	draw_body(card, card_data['body'], 730, width_minus_border, card_data['body_width'])
 	draw_footer(card, 100, width_minus_border, height_minus_border)
-	draw_corner_nr(card, card_data['corner_nr'], (width_minus_border - 65, height_minus_border - 90))
+	draw_corner_nr(card, card_data['speed'], (width_minus_border - 65, height_minus_border - 90))
 	card_with_border = ImageOps.expand(card, border=border_width, fill=border_color)
 	return card_with_border
 

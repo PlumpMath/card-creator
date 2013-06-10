@@ -3,4 +3,4 @@ from page import generate_pages_from_set
 
 ALL = range(0, 100)
 
-generate_pages_from_set(main_set, card_indexes = ALL, save = False, show = True)
+generate_pages_from_set(main_set, card_indexes = ALL, save = False, show = False)
