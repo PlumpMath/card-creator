@@ -2,7 +2,7 @@
 # all sizes are in cm
 
 main_set = {
-	'name': "Main set",
+	'name': "MainSet",
 	'margin': 1.0, # from the top and left of the page
 	'spacing': 0.02, # between the cards
 	'card_size': (6.3, 8.8), # the size (including the border) of each card

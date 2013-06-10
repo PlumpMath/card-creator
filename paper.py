@@ -42,7 +42,7 @@ def generate_papers_from_set(card_set, page_indexes = range(0, 99), save = False
 			if show:
 				paper.show()
 			if save:
-				path = "output/set" + str(i) + ".png"
-				print "Saving at path '" + path + "'"
+				path = "output/" + card_set['name'] + "_page_" + str(i) + ".png"
+				print "Saving '" + path + "'"
 				paper.save(path)
 		i += 1
