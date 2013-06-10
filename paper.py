@@ -5,7 +5,7 @@ from converters import cm_to_pixels
 a4_size = (cm_to_pixels(21.0), cm_to_pixels(29.7))
 (a4_width, a4_height) = a4_size
 
-def create_paper(card_set, page_index):
+def create_paper(card_set, card_indexes):
 	margin = cm_to_pixels(card_set['margin'])
 	spacing = cm_to_pixels(card_set['spacing'])
 	
@@ -17,24 +17,37 @@ def create_paper(card_set, page_index):
 
 	size_minus_border = (card_width_px - (border_width_px * 2), card_height_px - (border_width_px * 2))
 
-	pages = card_set['pages']
-	page = pages[page_index]
+	card_datas = card_set['cards']
+	selected_card_datas = []
 
-	cards = [create_card(data, size_minus_border, border_width_px, border_color) for data in page]
+	i = 0
+	for d in card_datas:
+		if i in card_indexes:
+			selected_card_datas.append(d)
+		i += 1
+
+	cards = []
+	for data in selected_card_datas:
+		card = create_card(data, size_minus_border, border_width_px, border_color)
+		for x in range(data['count']):
+			cards.append(card)
+	
 	paper = Image.new("RGB", a4_size, "white")
 	card_index = 0
 	for y in xrange(margin, a4_height - card_height_px, card_height_px + spacing):
 		for x in xrange(margin, a4_width - card_width_px, card_width_px + spacing):
-			card = cards[card_index % len(cards)]
+			card = cards[card_index]
 			card_index += 1
 			paper.paste(card, (x, y))
+			if card_index >= len(cards):
+				break
 	return paper
 
-def generate_papers_from_set(card_set, page_indexes = range(0, 99), save = False, show = True):
+def generate_papers_from_set(card_set, card_indexes = range(0, 99), save = False, show = True):
 	print "Generating '" + str(card_set['name']) + "'"
-	pages = card_set['pages']
-	for i in page_indexes:
-		if i >= len(pages):
+	cards = card_set['cards']
+	for i in card_indexes:
+		if i >= len(cards):
 			break
 		else:
 			print "Generating page " + str(i)
