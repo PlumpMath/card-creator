@@ -1,8 +1,13 @@
+
+# all sizes are in cm
+
 main_set = {
 	'name': "Main set",
-	'margin': 1.0,
-	'spacing': 0.02,
-	#'card_dimensions': 
+	'margin': 1.0, # from the top and left of the page
+	'spacing': 0.02, # between the cards
+	'card_size': (6.3, 8.8), # the size (including the border) of each card
+	'border_width': 0.25, # at the edge of each card
+	'border_color': (150, 150, 150),
 	'pages': [
 		[
 			{'illustration': "big_time", 'name': "Big Time", 'body': "Gain 3 points.", 'body_width': 25, 'corner_nr': "0", }, 
