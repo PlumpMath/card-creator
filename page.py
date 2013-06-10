@@ -53,7 +53,7 @@ def complete_page(card_set, card_indexes, save, show, page_counter):
 		print "Saving '" + path + "'"
 		page.save(path)
 
-def generate_pages_from_set(card_set, card_indexes = range(0, 99), save = False, show = True):
+def generate_pages_from_set(card_set, card_indexes = range(0, 999), save = False, show = True):
 	print "Generating '" + str(card_set['name']) + "'"
 	cards = card_set['cards']
 	cards_per_page = card_set['cards_per_page']
