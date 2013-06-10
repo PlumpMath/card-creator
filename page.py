@@ -5,7 +5,7 @@ from converters import cm_to_pixels
 a4_size = (cm_to_pixels(21.0), cm_to_pixels(29.7))
 (a4_width, a4_height) = a4_size
 
-def create_paper(card_set, card_indexes):
+def create_page(card_set, card_indexes):
 	margin = cm_to_pixels(card_set['margin'])
 	spacing = cm_to_pixels(card_set['spacing'])
 	
@@ -32,30 +32,48 @@ def create_paper(card_set, card_indexes):
 		for x in range(data['count']):
 			cards.append(card)
 	
-	paper = Image.new("RGB", a4_size, "white")
+	page = Image.new("RGB", a4_size, "white")
 	card_index = 0
 	for y in xrange(margin, a4_height - card_height_px, card_height_px + spacing):
 		for x in xrange(margin, a4_width - card_width_px, card_width_px + spacing):
-			card = cards[card_index]
-			card_index += 1
-			paper.paste(card, (x, y))
 			if card_index >= len(cards):
 				break
-	return paper
+			card = cards[card_index]
+			card_index += 1
+			page.paste(card, (x, y))
+	return page
 
-def generate_papers_from_set(card_set, card_indexes = range(0, 99), save = False, show = True):
+def complete_page(card_set, card_indexes, save, show, page_counter):
+	print "Creating page with cards: " + str(card_indexes)
+	page = create_page(card_set, card_indexes)
+	if show:
+		page.show()
+	if save:
+		path = "output/" + card_set['name'] + "_page_" + str(page_counter) + ".png"
+		print "Saving '" + path + "'"
+		page.save(path)
+
+def generate_pages_from_set(card_set, card_indexes = range(0, 99), save = False, show = True):
 	print "Generating '" + str(card_set['name']) + "'"
 	cards = card_set['cards']
+	cards_per_page = card_set['cards_per_page']
+	cards_on_current_page = 0
+	indexes_on_current_page = []
+	page_counter = 0
 	for i in card_indexes:
 		if i >= len(cards):
 			break
 		else:
-			print "Generating page " + str(i)
-			paper = create_paper(card_set, i)
-			if show:
-				paper.show()
-			if save:
-				path = "output/" + card_set['name'] + "_page_" + str(i) + ".png"
-				print "Saving '" + path + "'"
-				paper.save(path)
-		i += 1
+			card_to_add = cards[i]
+			count = card_to_add['count']
+			if (cards_on_current_page + count) <= cards_per_page:
+				indexes_on_current_page.append(i)
+				cards_on_current_page += count
+			else:
+				complete_page(card_set, indexes_on_current_page, save, show, page_counter)
+				indexes_on_current_page = [i] # new array
+				cards_on_current_page = count
+	complete_page(card_set, indexes_on_current_page, save, show, page_counter) # the last ones
+
+
+
