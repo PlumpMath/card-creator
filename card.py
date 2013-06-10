@@ -43,7 +43,6 @@ def draw_footer(card, height, width_minus_border, height_minus_border):
 	card.paste(footer, (0, height_minus_border - height))
 
 def create_card(card_data, size_minus_border, border_width, border_color):
-	print "card_data: " + str(card_data)
 	(width_minus_border, height_minus_border) = size_minus_border
 	card = Image.new("RGB", size_minus_border, "white")
 	draw_illustration(card, card_data['illustration'], 100, 500, width_minus_border)
