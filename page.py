@@ -60,6 +60,7 @@ def generate_pages_from_set(card_set, card_indexes = range(0, 99), save = False,
 	cards_on_current_page = 0
 	indexes_on_current_page = []
 	page_counter = 0
+	total_card_count = 0
 	for i in card_indexes:
 		if i >= len(cards):
 			break
@@ -73,7 +74,7 @@ def generate_pages_from_set(card_set, card_indexes = range(0, 99), save = False,
 				complete_page(card_set, indexes_on_current_page, save, show, page_counter)
 				indexes_on_current_page = [i] # new array
 				cards_on_current_page = count
-	complete_page(card_set, indexes_on_current_page, save, show, page_counter) # the last ones
-
-
+				page_counter += 1
+	complete_page(card_set, indexes_on_current_page, save, show, page_counter)
+	print "Total card count: " + str(total_card_count)
 

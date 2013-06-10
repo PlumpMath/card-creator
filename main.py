@@ -1,5 +1,6 @@
 from card_sets import main_set
-from paper import generate_papers_from_set, create_paper
+from page import generate_pages_from_set
 
-generate_papers_from_set(main_set, card_indexes = [0, 1, 2, 3, 4], save = True, show = True)
-#create_paper(main_set, [10, 11, 12, 13]).show()
+ALL = range(0, 100)
+
+generate_pages_from_set(main_set, card_indexes = ALL, save = False, show = True)

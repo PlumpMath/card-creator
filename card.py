@@ -45,7 +45,7 @@ def draw_footer(card, height, width_minus_border, height_minus_border):
 def create_card(card_data, size_minus_border, border_width, border_color):
 	(width_minus_border, height_minus_border) = size_minus_border
 	card = Image.new("RGB", size_minus_border, "white")
-	draw_illustration(card, card_data['illustration'], 100, 500, width_minus_border)
+	draw_illustration(card, card_data['pic'], 100, 500, width_minus_border)
 	draw_title(card, card_data['name'], (20, 15))
 	draw_body(card, card_data['body'], 730, width_minus_border, card_data['body_width'])
 	draw_footer(card, 100, width_minus_border, height_minus_border)
