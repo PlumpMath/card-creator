@@ -32,7 +32,7 @@ main_set = {
 			{'name': "Destiny", 			'pic': "destiny", 			'body': "Put the top card of the deck into play.", 'body_width': 20, 'speed': "3", 'count': 2},
 			{'name': "Philantropist", 		'pic': "philantropist", 	'body': "Make one of your cards usable and give it to your opponent.", 'body_width': 21, 'speed': "4", 'count': 1},
 			{'name': "Anarchy", 			'pic': "anarchy", 			'body': "Each player gains 1 point for each cheat they have in play. Trash all cheats.", 'body_width': 28, 'speed': "2", 'count': 1},
-			{'name': "Ancient Riches", 		'pic': "pyramid", 			'body': "Lose 2 points. Gain 1 point for each card in the trash pile.", 'body_width': 23, 'speed': "1", 'count': 1},
+			{'name': "Ancient Riches", 		'pic': "pyramid", 			'body': "Lose 2 points. Gain 1 point for each card in the trash pile.", 'body_width': 23, 'speed': "0", 'count': 1},
 			{'name': "Peddler", 			'pic': "peddler", 			'body': "Trash an unused card you control. Gain points equal to that card's star power.", 'body_width': 30, 'speed': "2", 'count': 1},
 			# cards 20 - 24
 			{'name': "Silence", 			'pic': "silence2", 			'body': "Until the end of your next turn, players cannot gain points.", 'body_width': 22, 'speed': "3", 'count': 1},
