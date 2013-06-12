@@ -1,14 +1,6 @@
 
-# all sizes are in cm
-
 main_set = {
 	'name': "MainSet",
-	'margin': 1.0, # from the top and left of the page
-	'spacing': 0.02, # between the cards
-	'card_size': (6.3, 8.8), # the size (including the border) of each card
-	'border_width': 0.25, # at the edge of each card
-	'border_color': (150, 150, 150),
-	'cards_per_page': 9,
 	'cards': [
 			# cards 0 - 4
 			{'name': "Simplicity", 			'pic': "simplicity", 		'body': "Gain 1 point.", 'body_width': 25, 'speed': "4", 'count': 3},
@@ -52,3 +44,4 @@ main_set = {
 			#{'name': "",	 				'pic': "sunrise", 			'body': "", 'body_width': 25, 'speed': "3", 'count': 2},
 	],
 }
+
