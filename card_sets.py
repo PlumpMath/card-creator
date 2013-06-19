@@ -5,14 +5,14 @@ main_set = {
 			# cards 0 - 4
 			{'name': "Simplicity", 			'pic': "simplicity", 		'body': "Gain 1 point.", 'body_width': 25, 'speed': "4", 'count': 3},
 			{'name': "Working 9 to 5", 		'pic': "working_9_to_5", 	'body': "Gain 2 points.", 'body_width': 25, 'speed': "2", 'count': 3},
-			{'name': "Big Time", 			'pic': "hair", 				'body': "Gain 3 points.", 'body_width': 25, 'speed': "0", 'count': 1}, # ska vara 3
+			{'name': "Big Time", 			'pic': "hair", 				'body': "Gain 3 points.", 'body_width': 25, 'speed': "0", 'count': 3},
 			{'name': "Hecatomb", 			'pic': "hecatomb", 			'body': "Trash any number of cards you control to gain that many points.", 'body_width': 24, 'speed': "2", 'count': 2},
 			{'name': "Catch Up", 			'pic': "catch_up", 			'body': "The player with the least points (if any) gains 5 points.", 'body_width': 24, 'speed': "2", 'count': 2},
 			# cards 5 - 9
 			{'name': "Together We Fall", 	'pic': "pipe", 				'body': "Both players lose 7 points.", 'body_width': 35, 'speed': "1", 'count': 1},
 			{'name': "Ambush!", 			'pic': "ambush", 			'body': "Put a card from your hand into play face up.", 'body_width': 23, 'speed': "2", 'count': 2},
 			{'name': "Duplicate", 			'pic': "birds", 			'body': "Both players double their points.", 'body_width': 20, 'speed': "2", 'count': 1},
-			{'name': "Destruction", 		'pic': "destruction", 		'body': "Trash a card.", 'body_width': 25, 'speed': "-1", 'count': 2},
+			{'name': "Pain",				'pic': "jellyfish", 		'body': "Make an unused card used.", 'body_width': 28, 'speed': "2", 'count': 2},
 			{'name': "Rescue Mission", 		'pic': "rescue_mission", 	'body': "Lose 2 points. Pick a trashed card and put it into play (unused).", 'body_width': 25, 'speed': "1", 'count': 2},
 			# cards 10 - 14
 			{'name': "Time Machine", 		'pic': "time_machine", 		'body': "Lose 5 points. You can use two additional cards this turn.", 'body_width': 25, 'speed': "1", 'count': 1},
@@ -41,8 +41,15 @@ main_set = {
 			# cards 30 - 34
 			{'name': "Scrap Canon",			'pic': "fire", 				'body': "Trash another card you control, if possible. Trash a card.", 'body_width': 22, 'speed': "2", 'count': 2},
 			{'name': "Angry Hermit",		'pic': "horse", 			'body': "Gain 1 point. If this is your only card in play, put two cards from the trash into play.", 'body_width': 26, 'speed': "2", 'count': 1},
-			{'name': "Pain",				'pic': "jellyfish", 		'body': "Make an unused card used.", 'body_width': 28, 'speed': "2", 'count': 1},
+			
 			#{'name': "",	 				'pic': "sunrise", 			'body': "", 'body_width': 25, 'speed': "3", 'count': 2},
 	],
 }
 
+
+banished = {
+	'name': "Banished",
+	'cards': [
+			{'name': "Destruction", 		'pic': "destruction", 		'body': "Trash a card.", 'body_width': 25, 'speed': "-1", 'count': 2},
+	]
+}
