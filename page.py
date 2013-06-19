@@ -15,6 +15,9 @@ def create_page(card_set, card_indexes):
 	border_width_px = cm_to_pixels(card_set['border_width']) # around each card
 	border_color = card_set['border_color']
 
+	outline_width = card_set['outline_width']
+	outline_color = card_set['outline_color']
+
 	size_minus_border = (card_width_px - (border_width_px * 2), card_height_px - (border_width_px * 2))
 
 	card_datas = card_set['cards']
@@ -28,7 +31,7 @@ def create_page(card_set, card_indexes):
 
 	cards = []
 	for data in selected_card_datas:
-		card = create_card(data, size_minus_border, border_width_px, border_color)
+		card = create_card(data, size_minus_border, border_width_px, border_color, outline_width, outline_color)
 		for x in range(data['count']):
 			cards.append(card)
 	

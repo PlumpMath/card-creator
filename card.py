@@ -33,19 +33,28 @@ def draw_body(card, raw_text, center_y, card_width, chars_per_line):
 		draw.text(((card_width - line_width) / 2, y), line, font = body_font, fill = (0, 0, 0))
 		y += line_height
 
-def draw_illustration(card, illustration_name, y, vertical_space, width_minus_border):
+def draw_illustration(card, illustration_name, y, vertical_space, width_minus_border, outline_width, outline_color):
+	image_spacing = 20
+	image_spacing_x2 = image_spacing * 2
 	illustration = Image.open("illustrations/" + illustration_name + ".png")
-	cropped = ImageOps.fit(illustration, (width_minus_border, vertical_space), Image.ANTIALIAS, 0.01, (0.5, 0.5)) 
-	card.paste(cropped, (0, y))
+	cropped = ImageOps.fit(illustration, (width_minus_border - (outline_width * 2) - image_spacing_x2, vertical_space - (outline_width * 2)), Image.ANTIALIAS, 0.01, (0.5, 0.5)) 
+	cropped_with_border = ImageOps.expand(cropped, border=outline_width, fill=outline_color)
+	card.paste(cropped_with_border, (0 + image_spacing, y))
 
 def draw_footer(card, height, width_minus_border, height_minus_border):
 	footer = Image.new("RGB", (width_minus_border, height), footer_color)
 	card.paste(footer, (0, height_minus_border - height))
 
-def create_card(card_data, size_minus_border, border_width, border_color):
+def draw_bg(card, w, h):
+	bg = Image.open("illustrations/bg1.png")
+	cropped = ImageOps.fit(bg, (w, h), Image.ANTIALIAS, 0.01, (0.5, 0.5)) 
+	card.paste(cropped, (0, 0))
+
+def create_card(card_data, size_minus_border, border_width, border_color, outline_width, outline_color):
 	(width_minus_border, height_minus_border) = size_minus_border
 	card = Image.new("RGB", size_minus_border, "white")
-	draw_illustration(card, card_data['pic'], 100, 500, width_minus_border)
+	#draw_bg(card, width_minus_border, height_minus_border)
+	draw_illustration(card, card_data['pic'], 100, 500, width_minus_border, outline_width, outline_color)
 	draw_title(card, card_data['name'], (20, 15))
 	draw_body(card, card_data['body'], 730, width_minus_border, card_data['body_width'])
 	draw_footer(card, 100, width_minus_border, height_minus_border)

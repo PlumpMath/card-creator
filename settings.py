@@ -6,4 +6,6 @@ poker_card_settings = {
 	'border_width': 0.25, # at the edge of each card
 	'border_color': (150, 150, 150),
 	'cards_per_page': 9,
+	'outline_width': 3, # around the illustration
+	'outline_color': (0, 0, 0),
 }
