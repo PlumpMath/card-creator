@@ -2,54 +2,53 @@
 main_set = {
 	'name': "MainSet",
 	'cards': [
-			# cards 0 - 4
-			{'name': "Simplicity", 			'pic': "simplicity", 		'body': "Gain 1 point.", 'body_width': 25, 'speed': "4", 'count': 3},
-			{'name': "Working 9 to 5", 		'pic': "working_9_to_5", 	'body': "Gain 2 points.", 'body_width': 25, 'speed': "2", 'count': 3},
-			{'name': "Big Time", 			'pic': "hair", 				'body': "Gain 3 points.", 'body_width': 25, 'speed': "0", 'count': 3},
-			{'name': "Hecatomb", 			'pic': "hecatomb", 			'body': "Trash any number of cards you control to gain that many points.", 'body_width': 24, 'speed': "2", 'count': 2},
-			{'name': "Catch Up", 			'pic': "catch_up", 			'body': "The player with the least points (if any) gains 5 points.", 'body_width': 24, 'speed': "2", 'count': 2},
-			# cards 5 - 9
-			{'name': "Together We Fall", 	'pic': "pipe", 				'body': "Both players lose 7 points.", 'body_width': 35, 'speed': "1", 'count': 1},
-			{'name': "Ambush!", 			'pic': "ambush", 			'body': "Put a card from your hand into play face up.", 'body_width': 23, 'speed': "2", 'count': 2},
-			{'name': "Duplicate", 			'pic': "birds", 			'body': "Both players double their points.", 'body_width': 20, 'speed': "2", 'count': 1},
-			{'name': "Pain",				'pic': "jellyfish", 		'body': "Make an unused card used.", 'body_width': 28, 'speed': "2", 'count': 2},
-			{'name': "Rescue Mission", 		'pic': "rescue_mission", 	'body': "Lose 2 points. Pick a trashed card and put it into play (unused).", 'body_width': 25, 'speed': "1", 'count': 2},
-			# cards 10 - 14
-			{'name': "Time Machine", 		'pic': "time_machine", 		'body': "Lose 5 points. You can use two additional cards this turn.", 'body_width': 25, 'speed': "1", 'count': 1},
-			{'name': "Scoundrels", 			'pic': "scoundrels", 		'body': "Both players may play up to two cheats from their hands.", 'body_width': 23, 'speed': "3", 'count': 1},
-			{'name': "Late Bloomer", 		'pic': "late_bloomer",		'body': "Gain 1 point. Turn a card into a cheat.", 'body_width': 25, 'speed': "1", 'count': 2},
-			{'name': "Metamorphic", 		'pic': "foxy", 				'body': "Gain 1 point. Flip up a cheat.", 'body_width': 17, 'speed': "2", 'count': 1},
-			{'name': "The Sublime", 		'pic': "the_sublime", 		'body': "Trash this card. Make two used cards usable again.", 'body_width': 20, 'speed': "1", 'count': 2},
-			# cards 15 - 19
-			{'name': "Destiny", 			'pic': "destiny", 			'body': "Put the top card of the deck into play.", 'body_width': 20, 'speed': "3", 'count': 2},
-			{'name': "Philantropist", 		'pic': "philantropist", 	'body': "Make one of your cards usable and give it to your opponent.", 'body_width': 21, 'speed': "4", 'count': 1},
-			{'name': "Anarchy", 			'pic': "anarchy", 			'body': "Each player gains 1 point for each cheat they have in play. Trash all cheats.", 'body_width': 28, 'speed': "2", 'count': 1},
-			{'name': "Ancient Riches", 		'pic': "pyramids", 			'body': "Lose 5 points. Gain 1 point for each card in the trash pile.", 'body_width': 23, 'speed': "0", 'count': 1},
-			{'name': "Peddler", 			'pic': "peddler", 			'body': "Trash an unused card you control. Gain points equal to that card's star power.", 'body_width': 30, 'speed': "2", 'count': 1},
-			# cards 20 - 24
-			{'name': "Silence", 			'pic': "silence2", 			'body': "Until the end of your next turn, players cannot gain points.", 'body_width': 22, 'speed': "3", 'count': 1},
-			{'name': "Purge", 				'pic': "purge", 			'body': "Gain 1 point. Trash all used cards.", 'body_width': 22, 'speed': "1", 'count': 2},
-			{'name': "Late to the Party", 	'pic': "neon", 				'body': "The player with the lowest total star power (if any) gains 4 points.", 'body_width': 25, 'speed': "2", 'count': 2},
-			{'name': "Faster than the Eye", 'pic': "hands", 			'body': "Turn any number of cards you control into cheats.", 'body_width': 25, 'speed': "1", 'count': 1},
-			{'name': "Martyr", 				'pic': "praying", 			'body': "Lose 3 points.", 'body_width': 25, 'speed': "5", 'count': 1},
-			# cards 25 - 29
-			{'name': "Asceticism",			'pic': "elephant", 			'body': "Gain 1 point. Discard your hand.", 'body_width': 20, 'speed': "3", 'count': 1},
-			{'name': "Observing the Infinite",'pic': "wisdom", 			'body': "Lose 5 points. Look at the top 7 cards of the deck and put one of those into play. Shuffle the deck.", 'body_width': 28, 'speed': "1", 'count': 1},
-			{'name': "Fresh Air",	 		'pic': "sunrise", 			'body': "Shuffle the discard pile into the deck. Draw three cards.", 'body_width': 22, 'speed': "3", 'count': 2},
-			{'name': "Careful Heist",	 	'pic': "sneakdoor", 		'body': "Take control of a card (this does not make a used card unused).", 'body_width': 25, 'speed': "-3", 'count': 1},
-			{'name': "Convincing Tounge",	'pic': "snake", 			'body': "Select which card the opponent must use on her next turn.", 'body_width': 23, 'speed': "1", 'count': 2},
-			# cards 30 - 34
-			{'name': "Scrap Canon",			'pic': "fire", 				'body': "Trash another card you control, if possible. Trash a card.", 'body_width': 22, 'speed': "2", 'count': 2},
-			{'name': "Angry Hermit",		'pic': "horse", 			'body': "Gain 1 point. If this is your only card in play, put two cards from the trash into play.", 'body_width': 26, 'speed': "2", 'count': 1},
+			# Pop
+			{'name': "Pop", 'body': "Pop!", 'count': 4, 'template': "pop", 'color': "white"},
+			{'name': "Pop 2", 'body': "Pop twice!", 'count': 1, 'template': "pop", 'color': "white"},
 			
-			#{'name': "",	 				'pic': "sunrise", 			'body': "", 'body_width': 25, 'speed': "3", 'count': 2},
+			# Push
+			{'name': "Push red", 'body': "Push red", 'count': 3, 'template': "push", 'color': "red"},
+			{'name': "Push blue", 'body': "Push blue", 'count': 3, 'template': "push", 'color': "blue"},
+			{'name': "Push back red", 'body': "Push_back red", 'count': 1, 'template': "push", 'color': "red"},
+			{'name': "Push back blue", 'body': "Push_back blue", 'count': 1, 'template': "push", 'color': "blue"},
+
+			# If
+			{'name': "If blue", 'body': "Red?", 'count': 1, 'template': "if", 'color': "red", 'true': "right", 'false': "left"},
+			{'name': "If red", 'body': "Blue?", 'count': 1, 'template': "if", 'color': "blue", 'true': "right", 'false': "up"},
+
+			{'name': "If blue", 'body': "Red?", 'count': 1, 'template': "if", 'color': "red", 'true': "up", 'false': "down"},
+			{'name': "If red", 'body': "Blue?", 'count': 1, 'template': "if", 'color': "blue", 'true': "up", 'false': "right"},
+
+			{'name': "If blue", 'body': "Red?", 'count': 1, 'template': "if", 'color': "red", 'true': "left", 'false': "up"},
+			{'name': "If red", 'body': "Blue?", 'count': 1, 'template': "if", 'color': "blue", 'true': "left", 'false': "down"},
+
+			{'name': "If blue", 'body': "Red?", 'count': 1, 'template': "if", 'color': "red", 'true': "down", 'false': "left"},
+			{'name': "If red", 'body': "Blue?", 'count': 1, 'template': "if", 'color': "blue", 'true': "down", 'false': "right"},
+
+			# Labels
+			{'name': "10", 'body': "10:", 'count': 1, 'template': "label", 'color': "white"},
+			{'name': "20", 'body': "20:", 'count': 1, 'template': "label", 'color': "white"},
+			{'name': "30", 'body': "30:", 'count': 1, 'template': "label", 'color': "white"},
+			{'name': "40", 'body': "40:", 'count': 1, 'template': "label", 'color': "white"},
+			{'name': "50", 'body': "50:", 'count': 1, 'template': "label", 'color': "white"},
+			
+			# Goto
+			{'name': "Goto 10", 'body': "GOTO 10", 'count': 1, 'template': "goto", 'color': "white"},
+			{'name': "Goto 20", 'body': "GOTO 20", 'count': 1, 'template': "goto", 'color': "white"},
+			{'name': "Goto 30", 'body': "GOTO 30", 'count': 1, 'template': "goto", 'color': "white"},
+			{'name': "Goto 40", 'body': "GOTO 40", 'count': 1, 'template': "goto", 'color': "white"},
+			{'name': "Goto 50", 'body': "GOTO 50", 'count': 1, 'template': "goto", 'color': "white"},
+			
+			# Shift
+			{'name': "Shift 1", 'body': "Shift 1", 'count': 1, 'template': "shift", 'color': "white"},
+			{'name': "Shift 2", 'body': "Shift 2", 'count': 1, 'template': "shift", 'color': "white"},
+			{'name': "Shift 3", 'body': "Shift 3", 'count': 1, 'template': "shift", 'color': "white"},
+			
+			# Set dir
+			{'name': "Set dir", 'body': "Set direction", 'count': 1, 'template': "dir", 'direction': "up", 'color': "white"},
+			{'name': "Set dir", 'body': "Set direction", 'count': 1, 'template': "dir", 'direction': "down", 'color': "white"},
+			{'name': "Set dir", 'body': "Set direction", 'count': 1, 'template': "dir", 'direction': "left", 'color': "white"},
+			{'name': "Set dir", 'body': "Set direction", 'count': 1, 'template': "dir", 'direction': "right", 'color': "white"},
 	],
 }
 
-
-banished = {
-	'name': "Banished",
-	'cards': [
-			{'name': "Destruction", 		'pic': "destruction", 		'body': "Trash a card.", 'body_width': 25, 'speed': "-1", 'count': 2},
-	]
-}
