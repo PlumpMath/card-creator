@@ -5,7 +5,7 @@ from stats import print_stats
 
 ALL = range(0, 999)
 
-generate_pages_from_set(main_set, poker_card_settings, card_indexes = ALL, save = False, show = True)
+generate_pages_from_set(main_set, poker_card_settings, card_indexes = ALL, save = True, show = False)
 
 #print_stats(main_set)
 
