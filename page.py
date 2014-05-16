@@ -82,6 +82,8 @@ def generate_separate_card_images_from_set(card_set, settings, card_indexes = ra
 
 	cards = []
 	for i in card_indexes:
+		if i >= len(card_datas):
+			break
 		data = card_datas[i]
 		card = create_card(data, settings)
 		total_card_count += 1
