@@ -50,7 +50,21 @@ def draw_bg(card, w, h):
 	cropped = ImageOps.fit(bg, (w, h), Image.ANTIALIAS, 0.01, (0.5, 0.5)) 
 	card.paste(cropped, (0, 0))
 
-def create_card(card_data, size_minus_border, border_width, border_color, outline_width, outline_color):
+def create_card(card_data, settings):
+	margin = cm_to_pixels(settings['margin'])
+	spacing = cm_to_pixels(settings['spacing'])
+	
+	(card_width_cm, card_height_cm) = settings['card_size']
+	(card_width_px, card_height_px) = (cm_to_pixels(card_width_cm), cm_to_pixels(card_height_cm))
+
+	border_width_px = cm_to_pixels(settings['border_width']) # around each card
+	border_color = settings['border_color']
+
+	outline_width = settings['outline_width']
+	outline_color = settings['outline_color']
+
+	size_minus_border = (card_width_px - (border_width_px * 2), card_height_px - (border_width_px * 2))
+
 	(width_minus_border, height_minus_border) = size_minus_border
 	card = Image.new("RGB", size_minus_border, "white")
 	#draw_bg(card, width_minus_border, height_minus_border)
@@ -59,7 +73,7 @@ def create_card(card_data, size_minus_border, border_width, border_color, outlin
 	draw_body(card, card_data['body'], 730, width_minus_border, card_data['body_width'])
 	draw_footer(card, 100, width_minus_border, height_minus_border)
 	draw_corner_nr(card, card_data['speed'], (width_minus_border - 65, height_minus_border - 90))
-	card_with_border = ImageOps.expand(card, border=border_width, fill=border_color)
+	card_with_border = ImageOps.expand(card, border=border_width_px, fill=border_color)
 	return card_with_border
 
 

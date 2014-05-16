@@ -11,7 +11,7 @@ main_set = {
 			# cards 5 - 9
 			{'name': "Together We Fall", 	'pic': "together_we_fall",	'body': "Both players lose 7 points.", 'body_width': 35, 'speed': "2", 'count': 1},
 			{'name': "Ambush!", 			'pic': "ambush", 			'body': "Put a card from your hand into play face up.", 'body_width': 23, 'speed': "1", 'count': 3},
-			{'name': "Duplicate", 			'pic': "birds", 			'body': "Both players double their points.", 'body_width': 20, 'speed': "2", 'count': 1},
+			{'name': "Duplicate", 			'pic': "duplicate",			'body': "Both players double their points.", 'body_width': 20, 'speed': "2", 'count': 1},
 			{'name': "Pain",				'pic': "jellyfish", 		'body': "Lose 1 point. Make an unused card used.", 'body_width': 24, 'speed': "2", 'count': 2},
 			{'name': "Rescue Mission", 		'pic': "rescue_mission", 	'body': "Lose 3 points. Pick a trashed card and put it into play (unused).", 'body_width': 25, 'speed': "1", 'count': 2},
 			# cards 10 - 14
@@ -24,18 +24,18 @@ main_set = {
 			{'name': "Destiny", 			'pic': "destiny", 			'body': "Put the top card of the deck into play.", 'body_width': 20, 'speed': "3", 'count': 2},
 			{'name': "Philantropist", 		'pic': "philantropist", 	'body': "Select one of your cards and give it to your opponent. Make it usable.", 'body_width': 27, 'speed': "4", 'count': 1},
 			{'name': "Anarchy", 			'pic': "anarchy", 			'body': "Each player gains 1 point for each cheat they have in play. Trash all cheats.", 'body_width': 28, 'speed': "2", 'count': 1},
-			{'name': "Ancient Riches", 		'pic': "pyramids", 			'body': "Lose 5 points. Gain 1 point for each card in the trash pile.", 'body_width': 23, 'speed': "0", 'count': 1},
+			{'name': "Ancient Riches", 		'pic': "pyramid", 			'body': "Lose 5 points. Gain 1 point for each card in the trash pile.", 'body_width': 23, 'speed': "0", 'count': 1},
 			{'name': "Peddler", 			'pic': "peddler", 			'body': "Trash an unused card you control. Gain points equal to that card's speed.", 'body_width': 30, 'speed': "2", 'count': 1},
 			# cards 20 - 24
-			{'name': "Silence", 			'pic': "silence2", 			'body': "Until the end of your next turn, players cannot gain points.", 'body_width': 22, 'speed': "3", 'count': 1},
-			{'name': "Purge", 				'pic': "purge", 			'body': "Gain 1 point. Trash all used cards.", 'body_width': 22, 'speed': "1", 'count': 2},
+			{'name': "Silence", 			'pic': "silence", 			'body': "Until the end of your next turn, players cannot gain points.", 'body_width': 22, 'speed': "3", 'count': 1},
+			{'name': "Purge", 				'pic': "purge", 			'body': "Gain 1 point. Trash all used cards.", 'body_width': 22, 'speed': "1", 'count': 1},
 			{'name': "Late to the Party", 	'pic': "neon", 				'body': "The player with the highest total speed (if any) gains 4 points.", 'body_width': 25, 'speed': "0", 'count': 2},
 			{'name': "Faster than the Eye", 'pic': "hands", 			'body': "Turn any number of cards you control into cheats.", 'body_width': 25, 'speed': "1", 'count': 1},
 			{'name': "Martyr", 				'pic': "praying", 			'body': "Lose 3 points.", 'body_width': 25, 'speed': "5", 'count': 1},
 			# cards 25 - 29
 			{'name': "Asceticism",			'pic': "elephant", 			'body': "Gain 1 point. Discard your hand.", 'body_width': 20, 'speed': "3", 'count': 1},
 			{'name': "Observing the Infinite",'pic': "wisdom", 			'body': "Lose 5 points. Look at the top 5 cards of the deck and put one of those into play. Discard the rest.", 'body_width': 28, 'speed': "1", 'count': 1},
-			{'name': "Fresh Air",	 		'pic': "sunrise", 			'body': "Shuffle the discard pile into the deck. Draw three cards.", 'body_width': 22, 'speed': "3", 'count': 2},
+			{'name': "Fresh Air",	 		'pic': "sunrise", 			'body': "Shuffle the discard pile into the deck. Draw three cards.", 'body_width': 22, 'speed': "3", 'count': 1},
 			{'name': "Careful Heist",	 	'pic': "sneakdoor", 		'body': "Take control of a card (this does not make a used card unused).", 'body_width': 25, 'speed': "-3", 'count': 1},
 			{'name': "Convincing Tounge",	'pic': "snake", 			'body': "Select which card the opponent must use on her next turn.", 'body_width': 23, 'speed': "1", 'count': 2},
 			# cards 30 - 34

@@ -5,23 +5,14 @@ from converters import cm_to_pixels
 a4_size = (cm_to_pixels(21.0), cm_to_pixels(29.7))
 (a4_width, a4_height) = a4_size
 
-def create_page(card_set, card_indexes):
-	margin = cm_to_pixels(card_set['margin'])
-	spacing = cm_to_pixels(card_set['spacing'])
-	
-	(card_width_cm, card_height_cm) = card_set['card_size']
-	(card_width_px, card_height_px) = (cm_to_pixels(card_width_cm), cm_to_pixels(card_height_cm))
-
-	border_width_px = cm_to_pixels(card_set['border_width']) # around each card
-	border_color = card_set['border_color']
-
-	outline_width = card_set['outline_width']
-	outline_color = card_set['outline_color']
-
-	size_minus_border = (card_width_px - (border_width_px * 2), card_height_px - (border_width_px * 2))
-
+def create_page(card_set, settings, card_indexes):
 	card_datas = card_set['cards']
 	selected_card_datas = []
+
+	margin = cm_to_pixels(settings['margin'])
+	(card_width_cm, card_height_cm) = settings['card_size']
+	(card_width_px, card_height_px) = (cm_to_pixels(card_width_cm), cm_to_pixels(card_height_cm))
+	spacing = cm_to_pixels(settings['spacing'])
 
 	i = 0
 	for d in card_datas:
@@ -31,7 +22,7 @@ def create_page(card_set, card_indexes):
 
 	cards = []
 	for data in selected_card_datas:
-		card = create_card(data, size_minus_border, border_width_px, border_color, outline_width, outline_color)
+		card = create_card(data, settings)
 		for x in range(data['count']):
 			cards.append(card)
 	
@@ -46,9 +37,9 @@ def create_page(card_set, card_indexes):
 			page.paste(card, (x, y))
 	return page
 
-def complete_page(card_set, card_indexes, save, show, page_counter):
+def complete_page(card_set, settings, card_indexes, save, show, page_counter):
 	print "Creating page nr " + str(page_counter) + " with cards: " + str(card_indexes)
-	page = create_page(card_set, card_indexes)
+	page = create_page(card_set, settings, card_indexes)
 	if show:
 		page.show()
 	if save:
@@ -56,11 +47,10 @@ def complete_page(card_set, card_indexes, save, show, page_counter):
 		print "Saving '" + path + "'"
 		page.save(path)
 
-def generate_pages_from_set(card_set_without_settings, settings, card_indexes = range(0, 999), save = False, show = True):
-	print "Generating '" + str(card_set_without_settings['name']) + "'"
-	card_set = dict(card_set_without_settings.items() + settings.items())
+def generate_pages_from_set(card_set, settings, card_indexes = range(0, 999), save = False, show = True):
+	print "Generating '" + str(card_set['name']) + "'"
 	cards = card_set['cards']
-	cards_per_page = card_set['cards_per_page']
+	cards_per_page = settings['cards_per_page']
 	cards_on_current_page = 0
 	indexes_on_current_page = []
 	page_counter = 0
@@ -76,40 +66,25 @@ def generate_pages_from_set(card_set_without_settings, settings, card_indexes = 
 				indexes_on_current_page.append(i)
 				cards_on_current_page += count
 			else:
-				complete_page(card_set, indexes_on_current_page, save, show, page_counter)
+				complete_page(card_set, settings, indexes_on_current_page, save, show, page_counter)
 				indexes_on_current_page = [i] # new array
 				cards_on_current_page = count
 				page_counter += 1
 	complete_page(card_set, indexes_on_current_page, save, show, page_counter)
 	print "Total card count: " + str(total_card_count)
 
-def generate_separate_card_images_from_set(card_set_without_settings, settings, card_indexes = range(0, 999), save = False, show = True):
-	print "Generating separate cards for set '" + str(card_set_without_settings['name']) + "'"
-	card_set = dict(card_set_without_settings.items() + settings.items())
+def generate_separate_card_images_from_set(card_set, settings, card_indexes = range(0, 999), save = False, show = True):
+	print "Generating separate cards for set '" + str(card_set['name']) + "'"
+	#card_set = dict(card_set_without_settings.items() + settings.items())
 	cards = card_set['cards']
 	total_card_count = 0
-	card_datas = card_set['cards']
-
-	margin = cm_to_pixels(card_set['margin'])
-	spacing = cm_to_pixels(card_set['spacing'])
-	
-	(card_width_cm, card_height_cm) = card_set['card_size']
-	(card_width_px, card_height_px) = (cm_to_pixels(card_width_cm), cm_to_pixels(card_height_cm))
-
-	border_width_px = cm_to_pixels(card_set['border_width']) # around each card
-	border_color = card_set['border_color']
-
-	outline_width = card_set['outline_width']
-	outline_color = card_set['outline_color']
-
-	size_minus_border = (card_width_px - (border_width_px * 2), card_height_px - (border_width_px * 2))
-
 	card_datas = card_set['cards']
 
 	cards = []
 	for i in card_indexes:
 		data = card_datas[i]
-		card = create_card(data, size_minus_border, border_width_px, border_color, outline_width, outline_color)
+		card = create_card(data, settings)
+		total_card_count += 1
 		if show:
 			card.show()
 		if save:
