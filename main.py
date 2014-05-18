@@ -5,10 +5,10 @@ from stats import print_stats
 
 ALL = range(0, 999)
 
-#new = [6, 8, 9, 14, 16, 22, 26, 32, 33, 34, 5]
+NEW = [3, 8, 4, 19, 26, 33, 34, 35, 36, 37, 38, 39, 40]
 
-#generate_pages_from_set(main_set, poker_card_settings, card_indexes = ALL, save = False, show = True)
-generate_separate_card_images_from_set(main_set, poker_card_settings, ALL, save = True, show = False)
+generate_pages_from_set(main_set, poker_card_settings, card_indexes = NEW, save = True, show = True)
+#generate_separate_card_images_from_set(main_set, poker_card_settings, ALL, save = True, show = False)
 
 #print_stats(main_set)
 

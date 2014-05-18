@@ -70,7 +70,7 @@ def generate_pages_from_set(card_set, settings, card_indexes = range(0, 999), sa
 				indexes_on_current_page = [i] # new array
 				cards_on_current_page = count
 				page_counter += 1
-	complete_page(card_set, indexes_on_current_page, save, show, page_counter)
+	complete_page(card_set, settings, indexes_on_current_page, save, show, page_counter)
 	print "Total card count: " + str(total_card_count)
 
 def generate_separate_card_images_from_set(card_set, settings, card_indexes = range(0, 999), save = False, show = True):
